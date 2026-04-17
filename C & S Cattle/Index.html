@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>C &amp; S Cattle | Irish Dexter Cattle &amp; Breeding Stock</title>
+  <meta name="description" content="C & S Cattle raises Irish Dexter cattle and breeding stock in Sharpsville, Indiana, in Tipton County." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #1f2521;
+      --bg-soft: #2b332d;
+      --panel: rgba(43, 51, 45, 0.9);
+      --card: rgba(52, 61, 54, 0.94);
+      --card-2: rgba(61, 71, 63, 0.9);
+      --text: #f3ead8;
+      --muted: #d5c7ab;
+      --accent: #9db37c;
+      --accent-2: #c68d57;
+      --accent-3: #7da18c;
+      --border: rgba(213, 199, 171, 0.12);
+      --shadow: 0 18px 42px rgba(8, 10, 8, 0.32);
+      --radius: 24px;
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Manrope", system-ui, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(157, 179, 124, 0.14), transparent 28%),
+        radial-gradient(circle at top right, rgba(198, 141, 87, 0.14), transparent 24%),
+        linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 56%, #171c19 100%);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--max));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(24, 29, 25, 0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+
+    .brand {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      padding: 6rem 0 4rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(52, 61, 54, 0.74);
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 1rem;
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 1rem;
+      line-height: 1.08;
+    }
+
+    h1 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(3rem, 6vw, 5.6rem);
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.02em;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 1.08rem;
+      max-width: 60ch;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 1.25rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.95rem 1.25rem;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      font-weight: 700;
+      transition: transform 180ms ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+      color: #192018;
+      border: none;
+      box-shadow: var(--shadow);
+    }
+
+    .btn.secondary {
+      background: rgba(52, 61, 54, 0.72);
+      color: var(--text);
+    }
+
+    .card,
+    .hero-card {
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, var(--card) 0%, var(--card-2) 100%);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-card {
+      padding: 1.5rem;
+    }
+
+    .photo-placeholder {
+      aspect-ratio: 4 / 4.6;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background:
+        linear-gradient(rgba(22, 27, 23, 0.28), rgba(22, 27, 23, 0.38)),
+        linear-gradient(160deg, rgba(157,179,124,0.18), rgba(198,141,87,0.16), rgba(31,37,33,0.9));
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: var(--muted);
+      padding: 1.25rem;
+      font-size: 1rem;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.9rem;
+      margin-top: 1rem;
+    }
+
+    .mini-card {
+      border-radius: 16px;
+      padding: 1rem;
+      background: rgba(31, 37, 33, 0.55);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .mini-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.84rem;
+      margin-bottom: 0.35rem;
+    }
+
+    section {
+      padding: 1rem 0 4.5rem;
+    }
+
+    .section-head {
+      margin-bottom: 1.5rem;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      max-width: 68ch;
+    }
+
+    .grid-3,
+    .grid-2 {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .card {
+      padding: 1.35rem;
+    }
+
+    .card p,
+    .muted {
+      color: var(--muted);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(31, 37, 33, 0.55);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .contact-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+      padding: 1rem 1.1rem;
+      border-radius: 16px;
+      background: rgba(31, 37, 33, 0.55);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    footer {
+      padding: 1rem 0 3rem;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 930px) {
+      .hero-grid,
+      .grid-3,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .mini-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand">C &amp; S Cattle</a>
+      <div class="nav-links">
+        <a href="#program">Our Program</a>
+        <a href="#herd">Herd</a>
+        <a href="#sale">For Sale</a>
+        <a href="#beef">Beef</a>
+        <a href="#why-dexter">Why Dexter</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Sharpsville, Indiana</div>
+        <h1>Irish Dexter cattle and breeding stock.</h1>
+        <p class="lead">
+          C &amp; S Cattle is based in Sharpsville, Indiana, and focused on building a practical herd of Irish Dexter cattle.
+          Our program emphasizes sound structure, disposition, maternal ability, and useful cattle for families, small farms,
+          and breeders looking for lasting value in the breed.
+        </p>
+        <div class="cta-row">
+          <a class="btn primary" href="#sale">Current availability</a>
+          <a class="btn secondary" href="#contact">Contact us</a>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <img src="assets/dexter.png" alt="Irish Dexter cattle at C &amp; S Cattle" class="hero-photo">
+        <div class="mini-grid">
+          <div class="mini-card">
+            <span>Location</span>
+            Sharpsville, Indiana
+          </div>
+          <div class="mini-card">
+            <span>Breed Focus</span>
+            Irish Dexter cattle
+          </div>
+          <div class="mini-card">
+            <span>Program</span>
+            Breeding stock &amp; beef
+          </div>
+          <div class="mini-card">
+            <span>Sales</span>
+            Private treaty
+          </div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section id="program">
+      <div class="container">
+        <div class="section-head">
+          <h2>Our Program</h2>
+          <p>
+            We are developing a herd of Irish Dexter cattle with an emphasis on functionality, breed character,
+            and long-term usefulness. Our goal is to produce cattle that fit smaller acreages, practical beef programs,
+            and breeders who value sound, manageable stock.
+          </p>
+        </div>
+        <div class="grid-2">
+          <article class="card">
+            <h3>Breeding Focus</h3>
+            <p>
+              Our breeding program emphasizes structural correctness, disposition, maternal traits, and cattle that work well in real-world conditions.
+              We believe steady herd improvement matters more than chasing numbers or volume.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Herd Direction</h3>
+            <p>
+              C &amp; S Cattle is built around careful herd development and honest representation.
+              We are focused on producing useful Dexter cattle with consistency, longevity, and practical value for both beef and breeding programs.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="herd">
+      <div class="container">
+        <div class="section-head">
+          <h2>Herd</h2>
+          <p>
+            Our herd is being developed with attention to foundation females, replacement quality, and herd sires that support the long-term goals of the program.
+          </p>
+        </div>
+        <div class="grid-3">
+          <article class="card">
+            <h3>Foundation Cows</h3>
+            <p>
+              Females selected for disposition, maternal ability, sound structure, and consistency within the herd.
+              These cows form the base of the program and influence its long-term direction.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Replacement Heifers</h3>
+            <p>
+              Young females representing the future of the herd.
+              Selection is centered on growth, usability, breed character, and the kind of traits that build a dependable cow herd over time.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Herd Sires</h3>
+            <p>
+              Bulls chosen with an eye toward improving structure, temperament, and overall herd quality.
+              The right herd sire plays a major role in consistency and long-term improvement.
+            </p>
+          </article>
+        </div>
+        <div class="tag-row">
+          <span class="tag">Irish Dexter</span>
+          <span class="tag">Breeding Stock</span>
+          <span class="tag">Private Treaty</span>
+          <span class="tag">Small Farm Friendly</span>
+          <span class="tag">Indiana Raised</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="sale">
+      <div class="container">
+        <div class="section-head">
+          <h2>For Sale</h2>
+          <p>
+            Cattle are occasionally available through private treaty. Reach out directly for current availability, upcoming calves, or future breeding stock offerings.
+          </p>
+        </div>
+        <div class="grid-3">
+          <article class="card">
+            <h3>Replacement Heifers</h3>
+            <p>
+              Heifers may be available at select times of the year for those looking to build with Dexter cattle on a manageable scale.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Bull Prospects</h3>
+            <p>
+              Young bulls may occasionally be offered when they fit the right breeding program and meet the standards of the herd.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Cow-Calf Pairs</h3>
+            <p>
+              From time to time, cow-calf pairs or proven females may be available for buyers wanting a quicker start with the breed.
+            </p>
+          </article>
+        </div>
+        <div class="card" style="margin-top: 1.2rem;">
+          <p>
+            For current availability, pricing, registration details, or future offerings, please contact us directly.
+            Serious inquiries are always welcome.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="beef">
+      <div class="container">
+        <div class="section-head">
+          <h2>Beef</h2>
+          <p>
+            Dexter cattle are valued by many families and smaller operations for their efficiency, manageable size, and practical usefulness.
+            Our beef program is built around cattle that fit real farms and real needs.
+          </p>
+        </div>
+        <div class="grid-2">
+          <article class="card">
+            <h3>Freezer Beef</h3>
+            <p>
+              Dexter cattle can be a practical option for families wanting quality beef from cattle that are efficient and well suited to smaller-scale production.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Availability</h3>
+            <p>
+              Beef availability may vary throughout the year. Contact us for information on current availability, future dates, or upcoming freezer beef opportunities.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-dexter">
+      <div class="container">
+        <div class="section-head">
+          <h2>Why Irish Dexter</h2>
+          <p>
+            Irish Dexter cattle are a strong fit for smaller acreages and practical cattle programs.
+            Their size, versatility, and breed character continue to make them appealing to families, breeders, and owner-operators.
+          </p>
+        </div>
+        <div class="grid-3">
+          <article class="card">
+            <h3>Manageable Size</h3>
+            <p>
+              Dexter cattle fit well on smaller farms and are often appreciated by producers looking for cattle that are easier to handle without losing usefulness.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Breed Character</h3>
+            <p>
+              The breed carries a distinct identity and heritage that appeals to those who value more than just scale.
+              Dexter cattle offer both practicality and a strong sense of purpose.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Efficient Utility</h3>
+            <p>
+              For farms seeking useful beef cattle with flexibility and efficiency, Dexter cattle offer a practical fit and long-term value.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <h2>Contact</h2>
+          <p>
+            For inquiries about breeding stock, freezer beef, or current availability, feel free to get in touch directly.
+          </p>
+        </div>
+        <div class="card">
+          <div class="contact-list">
+            <div class="contact-item">
+              <strong>Farm Location</strong>
+              <span>Sharpsville, Indiana</span>
+            </div>
+            <div class="contact-item">
+              <strong>Email</strong>
+              <a href="mailto:you@example.com">sales@cscattle.com</a>
+            </div>
+            <div class="contact-item">
+              <strong>Availability Inquiries</strong>
+              <span>Contact us for breeding stock, calves, freezer beef, or future offerings</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> C &amp; S Cattle • Sharpsville, Indiana
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
